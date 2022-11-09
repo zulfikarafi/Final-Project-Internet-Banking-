@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Register</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3be5d6471e.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="bg-gradient-primary" onload="dropdownAkun()">
+
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-2">Buka Rekening Baru</h1>
+                                        <p class="mb-4">Nikmati Langkah mudah Buka Rekening Alltale dimanapun, dan kapanpun</p>
+                                    </div>
+                                    <form class="user">
+                                        <div class="form-group">
+                                            <select class="form-control " aria-label="Default select example" id="saldo">
+                                                <option selected>Pilih jumlah awal saldo anda </option>
+                                                <option value="50000">50000</option>
+                                                <option value="1000000">1000000</option>
+                                                <option value="5000000">5000000</option>
+                                            </select>    
+                                        </div>
+                                        
+                                        <div  class="form-group row">
+                                            <div class="col-sm-6">
+                                                <select class="form-control " aria-label="Default select example" id="jenis">
+                                                    <option selected>Pilih Jenis kartu</option>
+                                                    <option value="PLATINUM">PLATINUM</option>
+                                                    <option value="GOLD">GOLD</option>
+                                                    <option value="BLACK">BLACK</option>
+                                            </select>
+                                            </div>
+                                            <div  class="col-sm-6 ">
+                                                <select id="cabang" class="form-control " aria-label="Default select example"  >
+                                                    <option  selected>Pilih Cabang</option>
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                    </form>
+                                    <hr>
+                                    <div onclick="bukaRekening()"  class="btn btn-primary btn-user btn-block">
+                                        Buka Rekening
+                                        
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="dashboard_nasabah.html">Kembali ke beranda</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/vendor/jquery/jquery.min.js"></script>
+    <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/demo/chart-area-demo.js"></script>
+    <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/demo/chart-pie-demo.js"></script>
+    <script>
+    
+
+
+    function bukaRekening(){
+        let idusr= localStorage.getItem("usrid")
+        let saldo=document.getElementById("saldo").value;
+        let jenis=document.getElementById("jenis").value;
+        let id_cabang=document.getElementById("cabang").value;  
+    
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Basic cmFmaTIxOjEyMw==");
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+        "saldo": saldo,
+        "jenis": jenis,
+        "id_cabang": id_cabang
+        });
+
+        var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+        };
+
+        if ( saldo == "" || jenis == "" || id_cabang == ""){           
+        return alert("Setiap kolom harus di isi")}
+        
+
+        fetch("http://127.0.0.1:5000/create_account_nasabah/"+idusr, requestOptions)
+        .then(response => response.json())
+        .then(result => hasil(result))
+        .catch(error => console.log('error', error));
+    }
+
+    function hasil(x){
+       if (x !== "data tidak tersimpan") {
+        alert("Berhasil membuka rekening baru")
+        window.location.href="dashboard_nasabah.html"
+       }
+    }
+
+    
+    function dropdownAkun(){
+        let idusr= localStorage.getItem("usrid") 
+        var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+        };
+
+        fetch("http://127.0.0.1:5000/cabang", requestOptions)
+        .then(response => response.json())
+        .then(result => { 
+            var arr = []
+            arr = result
+         console.log(arr) 
+        cabang = document.getElementById("cabang")
+        for (i = 0; i < arr.length; i++) {
+            // console.log(arr[i].nama)
+        cabang.innerHTML += 
+         `
+    
+        <option value="${arr[i].id_cabang}">${arr[i].nama}</option>
+                                    
+         `
+         }
+    })
+        .catch(error => console.log('error', error));
+            }
+    </script>
+</body>
+
+</html>
+
+

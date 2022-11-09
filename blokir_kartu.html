@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Alltale - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3be5d6471e.js" crossorigin="anonymous"></script>
+</head>
+
+<body onload="checkCookie();loadprofile()" id="page-top">
+
+    <!--------------------------------------------------------------- begin of Sidebar --------------------------------------------------------------->
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard_nasabah.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fa-regular fa-building-"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Alltale</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li onclick="klikBeranda()" class="nav-item active">
+                <a class="nav-link" href="dashboard_nasabah.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Beranda</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Akun
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Pengaturan</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Pengaturan:</h6>
+                        <a class="collapse-item" href="update_profil.html">Ubah Profil</a>
+                        <a class="collapse-item" href="update_password.html">Ubah Password</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="buka_rekening.html">
+                <i class="fa-regular fa-square-plus"></i>
+                  <span>Buka Rekening Baru</span></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="blokir_kartu.html">
+                <i class="fa-solid fa-ban"></i>
+                  <span>Blokir Kartu</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Transaksi
+            </div>
+
+            <!-- Nav Item - Transfer -->
+            <li class="nav-item">
+                <a class="nav-link" href="transaksi_transfer.html">
+                    <i class="fa-solid fa-money-bill-transfer"></i>
+                    <span>Transfer</span></a>
+            </li>
+
+            <!-- Nav Item - Tarik Tunai -->
+            <li class="nav-item">
+                <a class="nav-link" href="tarik_tunai.html">
+                    <i class="fa-solid fa-money-bill"></i>
+                    <span>Tarik Tunai</span></a>
+            </li>
+
+            <!-- Nav Item - Deposito -->
+            <li class="nav-item">
+                <a class="nav-link" href="deposito.html">
+                    <i class="fa-solid fa-piggy-bank"></i>
+                    <span>Deposito</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+           
+            <!-- Nav Item - History -->
+            <li class="nav-item">
+                <a class="nav-link" href="history.html">
+                    <i class="fa-solid fa-history"></i>
+                    <span>History</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+
+        </ul>
+        <!--------------------------------------------------------------- End of Sidebar --------------------------------------------------------------->
+
+
+        <!--------------------------------------------------------------- Beginof Topbar --------------------------------------------------------------->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span id="userprofile" class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                                <i class="fa-solid fa-image-portrait"></i>
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="profil.html">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profil
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!--------------------------------------------------------------- End of Topbar --------------------------------------------------------------->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Blokir kartu</h1>
+                    </div>
+
+                    <!-- Card Rekening -->
+                    <div id="profil" class="row">
+          
+                </div>
+                </div>
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Alltale 2022</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Apakah anda yakin akan keluar?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Klik tombol "Logout" jikan anda ingin keluar.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/vendor/jquery/jquery.min.js"></script>
+    <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/demo/chart-area-demo.js"></script>
+    <script src="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/js/demo/chart-pie-demo.js"></script>
+    <script>
+        
+// ----------------------------------------------------------------------------------------------->>>LOGIN
+
+function login(){
+    let username=document.getElementById("username").value;
+    let password=document.getElementById("password").value;
+    console.log(username,password);
+
+var myHeaders = new Headers();
+myHeaders.append("Authorization", "Basic " + btoa(username + ":" + password)); 
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  redirect: 'follow',             // Kalau tidak dikasih maka defaultnya = follow. Follow akan me-redirect ke url, manual tidak.
+  credential: 'include'
+};
+
+fetch("http://127.0.0.1:5000/login", requestOptions)
+  .then((response) => response.json())
+  // .then(data => beranda(data))
+  .then((result) => {
+    console.log(result.token), setcookies("token", result.token, 1);
+    localStorage.setItem("usrid", result.usrid);
+    window.location.assign("http://127.0.0.1:5500/dashboard_nasabah.html")
+   
+    // document.cookie = "token="+JSON.parse(result)+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+})
+.catch(error => console.log('error', error));
+
+};
+
+function setcookies(cName, cValue, expDays) {
+  let date = new Date();
+  date.setTime(date.getTime() + expDays * 24 * 60 * 60 * 1000);
+  const expires = "expires=" + date.toUTCString();
+  document.cookie = cName + "=" + cValue + ";" + expires + ";path=/";
+}
+
+//tombol login
+function klikLogin(){
+  location.href = "login.html"
+}
+
+// ----------------------------------------------------------------------------------------------->>>BERANDA
+function beranda(data){
+  if (data === "false"){
+    alert("username atau password anda salah!")
+  } else{
+    alert("Selamat datang di Bank Alltale");
+    location.href = "dashboard_nasabah.html";
+  }
+}
+
+
+function logout() {
+  document.cookie = "token=; expires=Thu, 01 jan 1970 00:00:00 UTC; path=/;";
+  window.location.assign("http://127.0.0.1:5500/login.html?#")
+}
+
+// ----------------------------------------------------------------------------------------------->>>Transfer
+
+//Untuk mencegah masuk ke Beranda tanpa Login
+// function loginDulu(){
+//   let kukis = document.cookie
+//   console.log(kukis)
+//   let x = kukis.split("=")
+//   let y = x[1]
+
+//   if (y == null){
+//     window.location.href="login.html"
+//     console.log("tes")
+//   }
+// }
+
+// loginDulu()
+
+
+//----------------------------------------------------------------------------------------------->>>REGISTER
+
+
+
+//----------------------------------------------------------------------------------------------->>>Nampilin Username di dpn
+function checkCookie() {
+  const token = document.cookie;
+  // console.log(token);
+  if (token !== "") {
+      // document.getElementById('loginbutton').style.display = "none"; untuk web yang bisa lihat tanpa login
+      const split = token.split(".");
+      let parsedToken = JSON.parse(atob(split[1]));
+      // console.log(parsedToken)
+      let namaNasabah = parsedToken["nama"]  
+      let username = parsedToken["usrname"]
+      // console.log(nama)
+      let namaAsli = document.getElementById('userprofile')
+      let namaPalsu = document.getElementById('usernm');
+      namaAsli.innerHTML = namaNasabah;
+      // namaPalsu.innerHTML = username;
+  } else {
+      document.getElementById('userprofile').style.display = "none";
+      document.getElementById('usernm').style.display = "none";
+  }
+}
+
+
+//----------------------------------------------------------------------------------------------->>>Nampilin Rekening profile
+function loadprofile(){
+  let idusr= localStorage.getItem("usrid")  
+ 
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+
+  fetch("http://127.0.0.1:5000/account/profile/"+idusr, requestOptions)
+  .then(response => response.json())
+  .then((result) =>{ 
+       var arr = []
+       arr = result
+        //  console.log(arr) 
+         profilAkun = document.getElementById("profil")
+         for (i = 0; i < arr.length; i++) { 
+          // console.log(arr[i].saldo)
+          if (arr[i].status === "Tidak Aktif"){
+            profilAkun.innerHTML += 
+            `
+            <div  class="offset-lg-2 col-lg-8">
+                <div class="card border-left-danger shadow h-100 py-2">
+                    <div  class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                  ${arr[i].no_rekening}</div>
+                                <div class="h5 mb-0 font-weight-bold text-red-800">Rp. ${arr[i].saldo}</div>
+                            </div>
+                            <div class="col-auto">
+                                <button id="${arr[i].id_account}" onclick="blokir(this.id)" class="btn btn-danger" type="button">Block</button>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            `
+          }else{
+            if (arr[i].jenis === "GOLD") {
+            profilAkun.innerHTML += 
+            `
+            <div  class="offset-lg-2 col-lg-8">
+                <div class="card border-left-warning shadow h-100 py-2">
+                    <div  class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                  ${arr[i].no_rekening}</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">Rp. ${arr[i].saldo}</div>
+                            </div>
+                            <div class="col-auto">
+                                <button id="${arr[i].id_account}"  onclick="blokir(this.id)" class="btn btn-danger" type="button">Block</button>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            `
+          }
+          if (arr[i].jenis === "PLATINUM") {
+            profilAkun.innerHTML += 
+            `
+            <div  class="offset-lg-2 col-lg-8">
+                <div class="card border-left-secondary  shadow h-100 py-2">
+                    <div  class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-grey text-uppercase mb-1">
+                                  ${arr[i].no_rekening}</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">Rp. ${arr[i].saldo}</div>
+                            </div>
+                            <div class="col-auto">
+                                <button id="${arr[i].id_account}" onclick="blokir(this.id)" class="btn btn-danger" type="button">Block</button>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            `
+          }
+          if (arr[i].jenis === "BLACK"){
+            profilAkun.innerHTML += 
+            `
+            <div  class="offset-lg-2 col-lg-8">
+                <div class="card border-left-dark shadow h-100 py-2">
+                    <div  class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+                                  ${arr[i].no_rekening}</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">Rp. ${arr[i].saldo}</div>
+                            </div>
+                            <div class="col-auto">
+                                <button id="${arr[i].id_account}" onclick="blokir(this.id)" class="btn btn-danger" type="button">Block</button>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            `
+          }
+       }}
+      })  
+  .catch(error => console.log('error', error));
+
+}
+
+
+//----------------------------------------------------------------------------------------------->>>Blokir
+
+function blokir(id){
+    let idusr= localStorage.getItem("usrid") 
+    let requestOptions = {
+    method: 'PUT',
+    redirect: 'follow'
+    };
+  console.log(id)
+    fetch("http://127.0.0.1:5000/account/deactivate/"+id, requestOptions)
+    .then(response => response.text())
+    .then(result => alert("Kartu anda telah berhasil di blokir"))
+    .catch(error => console.log('error', error));
+    
+    }
+
+
+    </script>
+</body>
+
+</html>

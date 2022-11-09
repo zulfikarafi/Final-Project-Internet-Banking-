@@ -1,0 +1,306 @@
+.flex {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	-ms-flex-flow: row wrap;
+	flex-flow: row wrap;
+}
+.flex.no-column {
+	-webkit-flex-flow: row wrap;
+	-ms-flex-flow: row wrap;
+	flex-flow: row wrap;
+}
+.flex.no-wrap {
+	-webkit-flex-wrap: nowrap;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+}
+.flex-column {
+	-webkit-flex-flow: column wrap;
+	-ms-flex-flow: column wrap;
+	flex-flow: column wrap;
+}
+.self-center {
+	-webkit-align-self: center;
+	-ms-flex-item-align: center;
+	-ms-grid-row-align: center;
+	align-self: center;
+}
+.items-center {
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+.space-between {
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
+.space-center {
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+.form-group-wrapper .form-group {
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 48%;
+	-ms-flex: 0 48%;
+	flex: 0 48%;
+	margin: 0;
+	width: 100%;
+}
+.multisteps-form fieldset:not(:first-of-type) {
+	display: none;
+}
+.multisteps-form .form-title {
+    margin: 0;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.multisteps-form .step-title {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 300;
+}
+.multisteps-form .form-inner {
+    background: #fff;
+    padding: 30px;
+    margin-top: 40px;
+    overflow: hidden;
+}
+.multisteps-form .form-inner .divider {
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+.form-inner .form-fields-wrapper:first-of-type {
+	padding: 0;
+}
+.form-inner .form-fields-inner {
+    background: #f0f3fa;
+    padding: 1px 20px;
+    margin-top: 25px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.form-group-wrapper.has-nested .form-group-wrapper {
+	-webkit-box-flex: 0;
+    -webkit-flex: 0 48%;
+    -ms-flex: 0 48%;
+    flex: 0 48%;
+    margin: 0;
+    width: 100%;    
+}
+.form-group-wrapper.has-nested .form-group {
+	margin-top: 0;
+}
+.pricing-plan-tag {
+	-webkit-align-self: flex-start;
+	-ms-flex-item-align: start;
+	align-self: flex-start;
+	margin-bottom: 0;
+	background: #a0a7ba;
+	color: #fff;
+	position: relative;
+	left: -31px;
+	margin-right: 15px;
+	width: 125px;
+	text-align: center;
+	height: 25px;
+	line-height: 25px;
+}
+.pricing-plan-tag.highlighted {
+	background: #1650e3;
+}
+.pricing-plan-field {
+	padding-left: 0;
+	/* margin: 30px 0; */
+}
+.pricing-plan-field:first-of-type {
+	margin-top: 5px;
+}
+.pricing-plan-field input[type="checkbox"] {
+	top: 6px;
+	left: -18px;
+}
+.pricing-plan-field .right-side {
+    position: relative;
+    top: -3px;
+    left: 5px;
+}
+.pricing-plan-field label {
+    color: #000;
+    font-weight: 500;
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+.pricing-plan-field p {
+    padding-left: 10px;
+    font-style: italic;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    padding-left: 10px;
+}
+.pricing-plan-field .job-post-nested-list {
+	padding-left: 10px;
+}
+.multisteps-form .form-group .label {
+	color: #627199;
+}
+.multisteps-form .form-group .label>span {
+    color: #a0a7ba;
+    padding-left: 3px;
+}
+.multisteps-form input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio]):not([type=file]), select.form-control {
+    height: 40px;
+    border: 1px solid #ededed;
+    border-radius: 3px;
+    font-size: 12px;
+    line-height: 13px;
+    -webkit-box-shadow: none;
+    box-shadow: none;	
+		width: 100%;
+}
+.multisteps-form select.form-control:focus {
+	border: 1px solid #ededed;
+}
+.multisteps-form select option:disabled {
+	display: none;
+}
+.multisteps-form textarea {
+	border: 1px solid #ededed;
+	width: 100%;
+}
+.upload-company-logo input[type="file"] {
+	display: none;
+	cursor: pointer;
+}
+.upload-company-logo label {
+    cursor: pointer;
+    width: 48%;
+    border: 1px solid #ededed;
+    height: 40px;
+    padding: 0 15px;
+    margin: 0;
+}
+.upload-company-logo label span {
+    padding-right: 5px;
+    color: #1650e3;
+    font-size: 9px;
+    text-transform: uppercase;
+}
+.upload-company-logo label span:first-of-type {
+	font-style: italic;
+	color: #a0a7ba;
+	text-transform: none;
+}
+.upload-company-logo label span>i {
+	font-size: 16px;
+	padding-right: 5px;
+	position: relative;
+	top: 2px;
+}
+.multisteps-form .form-inner>h6 {
+	margin-bottom: 20px;
+    color: #a0a7ba;
+}
+.multisteps-form .form-inner>h6>a {
+    color: #1650e3;
+    padding-left: 5px;	
+}
+.multisteps-form .form-group-wrapper {
+    margin: 0;
+    margin-top: 15px;
+}
+.multisteps-form .form-group-wrapper:last-of-type {
+	margin-bottom: 30px;
+}
+.multisteps-form .button-wrapper {
+    padding: 15px 0 10px;
+}
+.multisteps-form .form-fields-title {
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+}
+.multisteps-form .form-inner .job-post-share {
+	padding: 0;
+}
+h2.job-post-success {
+	color: #9db723;
+}
+.multisteps-form .form-inner p a {
+	color: #1650e3;
+	font-weight: 400;
+}
+.multisteps-form .button-wrapper.dynamic-buttons {
+	padding: 15px 20px 10px;	
+}
+.multisteps-form .dynamic-buttons button {
+    background: transparent;
+    color: #000;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 0;
+    border: none;
+    font-size: 9px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.multisteps-form .dynamic-buttons button>span {
+    padding-right: 5px;
+    font-size: 16px;
+    position: relative;
+    top: 2px;	
+}
+.multisteps-form .dynamic-buttons .clone {
+	color: #9db723;
+	cursor: pointer;
+}
+.multisteps-form .dynamic-buttons .remove {
+	color: #dd4003;
+	cursor: pointer;
+}
+.multisteps-form .form-group-wrapper.skills-field .form-group:first-of-type {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 84%;
+    -ms-flex: 0 84%;
+    flex: 0 84%;
+    margin: 0;
+    width: 100%;		
+}
+.multisteps-form .form-group-wrapper.skills-field .form-group:last-of-type {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 15%;
+    -ms-flex: 0 15%;
+    flex: 0 15%;
+    margin: 0;
+    width: 100%;	
+}
+.multisteps-form .profile-wrapper, .multisteps-form .profile-wrapper .profile-section {
+	padding: 0;
+}
+@media all and (min-width: 992px) {
+	.multisteps-form .form-inner {
+	    width: 770px;
+	    margin: 0 auto;
+	    margin-top: 40px;
+	    position: relative;
+	}
+}
+@media all and (max-width: 768px) {
+	.pricing-plan-tag {
+		min-width: 50px;
+	}
+	.upload-company-logo label {
+		width: 100%;
+	}
+	.multisteps-form .form-group-wrapper {
+		margin-top: 5px;
+	}
+}

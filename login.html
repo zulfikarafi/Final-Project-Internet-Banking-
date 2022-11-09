@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alltale Login Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="startbootstrap-sb-admin-2-gh-pages/startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3be5d6471e.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="content">
+      <div class="flex-div">
+        <div class="name-content">
+          <h1 class="logo">Alltale</h1>
+          <p>Selamat datang di bank Alltale</p>
+        </div>
+          <form action="#">
+            <p>Username</p>
+            <input id="username" type="text" placeholder="Masukan username " required />
+            <p>Password</p>
+            <input id="password" type="password" placeholder="Masukan password" required>
+            <button id="loginbutton" onclick="login()" class="login">Masuk</button>
+            <!-- <a href="#">Lupa Password?</a> -->
+            <hr>
+            <button onclick="buatAkun()" class="create-account">
+              Buat Rekening Baru</button>
+          </form>
+          
+          <script >
+
+//Register
+function buatAkun(){
+  location.href = "register.html"
+}
+
+// Login
+function login(){
+let username=document.getElementById("username").value;
+let password=document.getElementById("password").value;
+// console.log(username,password);
+
+var myHeaders = new Headers();
+myHeaders.append("Authorization", "Basic " + btoa(username + ":" + password)); 
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  redirect: 'follow',             // Kalau tidak dikasih maka defaultnya = follow. Follow akan me-redirect ke url, manual tidak.
+  credential: 'include'
+};
+
+fetch("http://127.0.0.1:5000/login", requestOptions)
+  .then((response) => response.json())
+  // .then(data => beranda(data))
+  .then((result) => {
+    console.log(result.token), setcookies("token", result.token, 1);
+    localStorage.setItem("usrid", result.usrid);
+    // window.location.assign("http://127.0.0.1:5500/dashboard_nasabah.html")
+    location.href="dashboard_nasabah.html"
+   
+    // document.cookie = "token="+JSON.parse(result)+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+})
+.catch(error => console.log('error', error));
+
+};
+
+function setcookies(cName, cValue, expDays) {
+  let date = new Date();
+  date.setTime(date.getTime() + expDays * 24 * 60 * 60 * 1000);
+  const expires = "expires=" + date.toUTCString();
+  document.cookie = cName + "=" + cValue + ";" + expires + ";path=/";
+}
+
+
+
+          </script>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+

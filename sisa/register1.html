@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registrasi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style_register.css" />
+    <script src="https://kit.fontawesome.com/3be5d6471e.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-light shadow p-3 mb-5 sticky-top border-primary">
+      <div class="container-sm">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <h1 class="logo">Alltale</h1>
+        <div class="container-fluid">
+          <!-- <form class="d-flex" role="search">
+            <input class="form-control m-0" type="search" placeholder="Search" aria-label="Search">
+          </form> -->
+        </div>
+        <div>
+          <div class=" collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class=" navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- <li class="nav-item ">
+                  <a class="nav-link active" aria-current="page" href="#"><i class="fa-regular fa-handshake p-2" style="color: rgb(82, 108, 212)" ></i></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"><i class="fa-regular fa-bookmark p-2" style="color: rgb(82, 108, 212)"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-list p-2" style="color: rgb(82, 108, 212)"></i></a>
+                </li> -->
+                <!-- <li class="nav-item dropdown p-2 ">
+                  <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">IDR</a>       
+                  <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">US Dollar</a></li>
+                      <li><a class="dropdown-item" href="#">Euro EUR</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">lainnya</a></li>
+                  </ul>
+                </li> -->
+                <!-- <li class="nav-item dropdown p-2 ">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Log In</a>       
+                  <ul class="dropdown-menu" >
+                    <form action="login.php" method="POST" class="container-fluid  rounded">
+                      <li><a class="dropdown-item " href="#">Username<br>
+                          <input type="text" name="username" placeholder="username or email" required/></a></li>
+                      <li><a class="dropdown-item" href="#">Password<br>
+                          <input type="password" name="password" placeholder="password" required/></a></li>        
+                      <li><a class="dropdown-item" href="#"><label><input type="checkbox" name="remember" value="remember"/> Remember me</label></a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><input type="submit" name="submit" value="Login"/></a></li>
+                  </ul>
+                </li> -->
+                <button onclick="klikLogin()" type="button" class="btn btn-primary" >Login</button>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script> 
+  </div>
+  <div class="offset-lg-1 col-lg-10">
+    <form action="#" class="container" id="needs-validation" novalidate>
+      <div class="form-group">
+        <label for="exampleInputPassword1">NIK</label>
+        <input id= "nik" type="text" class="form-control" required>
+      </div>
+      <!-- <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom01">Nama Depan</label>
+          <input type="text" class="form-control" id="validationCustom01" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom02">Nama Belakang</label>
+          <input type="text" class="form-control" id="validationCustom02" required>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">No. Handphone</label>
+          <input type="text" class="form-control" required>
+        </div>
+      </div> -->
+      
+      <div class="form-group">
+        <label for="exampleInputPassword1">Nama</label>
+        <input id="nama" type="text" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">No. Handphone</label>
+        <input id="no_hp" type="text" class="form-control" required>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Pekerjaan</label>
+          <input id="pekerjaan" type="text" class="form-control" required>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-md-8 mb-3">
+          <label for="validationCustom03">Alamat</label>
+          <input id="alamat" type="text" class="form-control" id="validationCustom03" required>
+          <div class="invalid-feedback">
+            Isi alamat sesuai KTP anda!
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationCustom03">Kota</label>
+          <input id="kota" type="text" class="form-control" id="validationCustom03" required>
+          <div class="invalid-feedback">
+            Isi kota sesuai KTP anda!
+        </div>
+      </div> -->
+        <!-- <div class="col-md-3 mb-4">
+          <label for="validationCustom03">Kelurahan</label>
+          <input id="kelurahaan" type="text" class="form-control" id="validationCustom03" required>
+          <div class="invalid-feedback">
+            Isi alamat sesuai KTP anda!
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <label for="validationCustom04">kecamatan</label>
+          <input id="kecamatan" type="text" class="form-control" id="validationCustom04" required>
+          <div class="invalid-feedback">
+            Isi alamat sesuai KTP anda!
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <label for="validationCustom05">Provinsi</label>
+          <input id="provinsi" type="text" class="form-control" id="validationCustom05" required>
+          <div class="invalid-feedback">
+            Isi alamat sesuai KTP anda!
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <label for="validationCustom05">Kode Pos</label>
+          <input id="kodePos" type="text" class="form-control" id="validationCustom05"  required>
+          <div class="invalid-feedback">
+            Isi alamat sesuai KTP anda!
+        </div> -->
+      <div class="form-group">
+        <label for="exampleInputUsername1">Nama Pengguna</label>
+        <input id="username" type="text" class="form-control" required >
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Alamat Email</label>
+        <input id="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">kata Sandi</label>
+        <input id="password" type="password" class="form-control" id="exampleInputPassword1" >
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Saldo</label>
+          <input id="saldo" type="text" class="form-control" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Jenis kartu</label>
+          <input id="jenis" type="text" class="form-control" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Cabang</label>
+          <input id="id_cabang" type="text" class="form-control" required>
+        </div>
+      </div>
+      <!-- <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input">
+        </label>
+      </div>  -->
+      <hr>
+      <button onclick="register()"class="btn btn-primary" type="submit">Kirim Data Ini</button>
+    </form>  
+    </div>
+ <script src="banking.js">
+
+ </script>
+</html>
